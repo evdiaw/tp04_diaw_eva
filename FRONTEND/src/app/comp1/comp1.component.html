@@ -1,0 +1,66 @@
+<header>Formulaire d'inscription</header> <br>
+
+<div class="c1">
+
+    <h1>Formulaire client</h1>
+
+    <div>
+        <label for="civilite">Civilité : </label>
+        <select [(ngModel)]="client.civilite">
+            <option value="mme">Madame</option>
+            <option value="mr">Monsieur</option>
+            <option value="autre">Autre</option>
+        </select>
+        
+        <label for="prenom">Prenom : </label>
+        <input appOnlyLetters [(ngModel)]="client.prenom"/>
+    
+        <label for="nom">Nom : </label>
+        <input appOnlyLetters [(ngModel)]="client.nom"/>
+    </div>
+
+    <div>     
+        <label for="adresse">Adresse : </label>
+        <input [(ngModel)]="client.adresse"/>
+
+        <label for="code_postal">Code postal : </label>
+        <input appOnlyNumbers maxSize ="4" [(ngModel)]="client.code_postal"/>
+    
+        <label for="ville">Ville : </label>
+        <input appOnlyLetters [(ngModel)]="client.ville"/>
+    </div>
+
+    <div>     
+        <label for="telephone">telephone : </label>
+        <input appOnlyNumbers maxSize ="9" [(ngModel)]="client.telephone"/>
+
+        <label for="email">Email : </label>
+        <input [(ngModel)]="client.email"/>
+    </div>
+
+    <div>     
+        <label for="login">Login : </label>
+        <input [(ngModel)]="client.login"/>
+
+        <label for="password">Mot de passe : </label>
+        <input [(ngModel)]="client.password"/>
+
+        <label for="password_conf">Confirmation du mot de passe : </label>
+        <input [(ngModel)]="client.password_conf"/>
+    </div>
+
+    <button type="button" class="btn btn-primary">Envoyer</button>
+    
+    <br>
+    <div>
+        <app-comp2 [client]="client"></app-comp2>
+    </div>
+
+    <div>
+        <app-comp-catalogue></app-comp-catalogue>
+    </div>
+
+    <br>
+
+</div>
+<footer>Fin du formulaire</footer>
