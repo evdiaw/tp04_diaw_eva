@@ -13,7 +13,7 @@ import { ClientModule } from './client.module';
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'client', loadChildren: () => import('./client.module').then(m => m.ClientModule) },
-  { path: 'produit', loadChildren: () => import('./produit.module').then(m => m.ProduitModule) },
+  { path: 'catalogue', loadChildren: () => import('./produit.module').then(m => m.ProduitModule) },
 
 
 ];
@@ -28,7 +28,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule,
+    //NgbModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     ProduitModule,

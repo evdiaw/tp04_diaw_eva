@@ -7,12 +7,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
-import { PanierComponent } from './panier/panier.component';
 
 const appRoutes: Routes = [
   { path: 'catalogue', component:CompCatalogueComponent},
   { path: 'Detail produit', component:DetailProduitComponent},
-  { path: 'Panier', component:PanierComponent},
 ];
 
 @NgModule({
@@ -20,7 +18,6 @@ const appRoutes: Routes = [
     CompCatalogueComponent,
     SearchBarComponent,
     DetailProduitComponent,
-    PanierComponent
 
   ],
   imports: [

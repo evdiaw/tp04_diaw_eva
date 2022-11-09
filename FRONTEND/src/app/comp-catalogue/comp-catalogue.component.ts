@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { CatalogueService } from '../catalogue.service';
-import { Catalogue } from '../core/Catalogue';
+import { Produit } from '../core/Produit';
 
 @Component({
   selector: 'app-comp-catalogue',
@@ -16,7 +16,7 @@ export class CompCatalogueComponent implements OnInit {
   constructor(private catalogueService: CatalogueService) { }
 
   @Input() filtre: string = '';
-  tabProduits: Array<Catalogue> = [];
+  tabProduits: Array<Produit> = [];
   sub: Subscription = new Subscription;
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class CompCatalogueComponent implements OnInit {
   }
 
   getCatalogue() {
-    this.catalogueService.getCatalogue().subscribe({
+    this.catalogueService.getProduit().subscribe({
       next: (data) => {
         this.tabProduits = data;
       }
@@ -32,7 +32,7 @@ export class CompCatalogueComponent implements OnInit {
     console.log(this.tabProduits.length);
   }
 
-  updateCatalogue(event: Catalogue[]) {
+  updateCatalogue(event: Produit[]) {
     this.tabProduits = event;
   }
 
