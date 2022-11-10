@@ -9,6 +9,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ProduitModule } from './produit.module';
 import { ClientModule } from './client.module';
+import { HeaderComponent } from './header/header.component';
+import { NgxsModule } from '@ngxs/store';
+import { PanierState } from './state/panier-state';
 
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -23,6 +26,7 @@ const appRoutes: Routes = [
     AppComponent,
     MenuComponent,
     AccueilComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     ProduitModule,
-    ClientModule
+    ClientModule,
+    NgxsModule.forRoot([PanierState])
 
   ],
   exports: [RouterModule],

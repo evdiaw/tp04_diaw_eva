@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Store } from '@ngxs/store';
 import { Subscription } from 'rxjs';
+import { AjoutPanier } from '../actions/catalogue-actions';
 import { CatalogueService } from '../catalogue.service';
 import { Produit } from '../core/Produit';
 
@@ -13,7 +15,7 @@ export class CompCatalogueComponent implements OnInit {
 
   search = new FormControl('');
 
-  constructor(private catalogueService: CatalogueService) { }
+  constructor(private catalogueService: CatalogueService, private store: Store) { }
 
   @Input() filtre: string = '';
   tabProduits: Array<Produit> = [];
@@ -52,5 +54,9 @@ export class CompCatalogueComponent implements OnInit {
         break;
     }
   } 
+
+  ajouterPanier(produit: Produit): void{
+    this.store.dispatch(new AjoutPanier(produit));
+  }
 
 }

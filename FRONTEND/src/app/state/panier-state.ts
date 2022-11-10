@@ -5,7 +5,9 @@ import {
   State,
   StateContext,
   createSelector,
+  Select,
 } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { AjoutPanier, SuppressionPanier } from '../actions/catalogue-actions';
 import { PanierStateModel } from './panier-state-model';
 
@@ -27,6 +29,8 @@ export class PanierState {
   static getPanier(state: PanierStateModel) {
     return state.panier;
   }
+
+  
 
   @Action(AjoutPanier)
   add(

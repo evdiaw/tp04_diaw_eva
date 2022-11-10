@@ -2,11 +2,14 @@
     <h1>Catalogue des produits</h1>
 
     <label for="filtre">Filtrer par</label>
-    <select [(ngModel)]="filtre" (change)="onChange($event)">
-        <option value=""></option>
-        <option value="color">Couleur</option>
-        <option value="type">Type</option>
-    </select>
+    <div class="catalog_options">
+        <select [(ngModel)]="filtre" (change)="onChange($event)">
+            <option value=""></option>
+            <option value="color">Couleur</option>
+            <option value="type">Type</option>
+        </select>
+    </div>
+    
 
     <app-search-bar [categorie]="'type'" [listeFiltree]="tabProduits" (filterResult)="updateCatalogue($event)"
         (filterReset)="getCatalogue()">
@@ -14,7 +17,7 @@
 
     <div *ngFor="let produit of tabProduits">
         <ul>
-            <li>{{ produit.color }} {{ produit.type }} </li>
+            <li>{{ produit.color }} {{ produit.type }} <button (click)="ajouterPanier(produit)">Ajouter au panier</button></li>
         </ul>
     </div>
 
