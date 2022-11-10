@@ -8,7 +8,7 @@ import {
   Select,
 } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { AjoutPanier, SuppressionPanier } from '../actions/catalogue-actions';
+import { AjoutPanier, SuppressionPanier } from '../actions/panier-actions';
 import { PanierStateModel } from './panier-state-model';
 
 @State<PanierStateModel>({

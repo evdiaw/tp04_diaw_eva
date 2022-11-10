@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { Subscription } from 'rxjs';
-import { AjoutPanier } from '../actions/catalogue-actions';
+import { AjoutPanier } from '../actions/panier-actions';
 import { CatalogueService } from '../catalogue.service';
 import { Produit } from '../core/Produit';
 

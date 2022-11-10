@@ -4,13 +4,15 @@ import { CompCatalogueComponent } from './comp-catalogue/comp-catalogue.componen
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
+import { PanierComponent } from './panier/panier.component';
+
 
 const appRoutes: Routes = [
   { path: 'catalogue', component:CompCatalogueComponent},
   { path: 'Detail produit', component:DetailProduitComponent},
+  { path: 'panier', component:PanierComponent},
 ];
 
 @NgModule({
@@ -18,6 +20,7 @@ const appRoutes: Routes = [
     CompCatalogueComponent,
     SearchBarComponent,
     DetailProduitComponent,
+    PanierComponent
 
   ],
   imports: [
@@ -25,7 +28,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forChild(appRoutes),
-    NgbModule,
+    //NgbModule,
     ReactiveFormsModule,
   ],
   exports: [RouterModule],
