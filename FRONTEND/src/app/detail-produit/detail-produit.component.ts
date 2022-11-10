@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { CatalogueService } from '../catalogue.service';
+import { Produit } from '../core/Produit';
+import { ProduitService } from '../produit.service';
 
 @Component({
   selector: 'app-detail-produit',
@@ -7,9 +12,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailProduitComponent implements OnInit {
 
-  constructor() { }
+  produit: Produit = new Produit;
+  tabProduits: Array<Produit> = [];
+  sub: Subscription = new Subscription;
+  id: number = 0;
+  constructor(private route: ActivatedRoute, private service: CatalogueService) {
+    this.id = this.route.snapshot.params['id'];
+  }
 
-  ngOnInit(): void {
+
+  ngOnInit() {
+    this.getCatalogue();
+    this.produit = this.getProduit(this.id);
+  }
+
+  getProduit(id: number): Produit {
+    return this.tabProduits.find(p => p.id == id) as Produit
+  }
+
+  getCatalogue() {
+    this.service.getProduits().subscribe({
+      next: (data) => {
+        this.tabProduits = data;
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
 }

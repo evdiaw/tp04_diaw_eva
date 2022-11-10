@@ -26,7 +26,7 @@ export class CompCatalogueComponent implements OnInit {
   }
 
   getCatalogue() {
-    this.catalogueService.getProduit().subscribe({
+    this.catalogueService.getProduits().subscribe({
       next: (data) => {
         this.tabProduits = data;
       }

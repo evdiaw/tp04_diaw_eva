@@ -13,6 +13,7 @@ const appRoutes: Routes = [
   { path: 'catalogue', component:CompCatalogueComponent},
   { path: 'Detail produit', component:DetailProduitComponent},
   { path: 'panier', component:PanierComponent},
+  { path: ':id', component: DetailProduitComponent },
 ];
 
 @NgModule({
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
     CompCatalogueComponent,
     SearchBarComponent,
     DetailProduitComponent,
-    PanierComponent
+    PanierComponent,
 
   ],
   imports: [

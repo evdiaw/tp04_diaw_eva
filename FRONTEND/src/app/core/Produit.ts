@@ -1,7 +1,7 @@
-export interface Produit {
-    color: string;
-    type: string;
-    id: number;
-    favori: boolean;
+export class Produit {
+    color: string = "";
+    type: string = "";
+    id: number = 25;
+    favori: boolean = false;
   }
   
